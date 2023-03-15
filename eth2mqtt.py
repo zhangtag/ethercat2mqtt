@@ -17,7 +17,6 @@ client.username_pw_set(mqtt_username, mqtt_password)
 client.on_connect = on_connect
 client.connect(mqtt_broker, mqtt_port, 60)
 
-topic = "ethercat"
 
 def main(ifname):
     # Create EtherCAT master
@@ -56,6 +55,8 @@ def main(ifname):
                         #     print(f"  Output {i}: {data}")
                         # print()
                         message = slave.sdo_read(0x6050,1,8)
+                        topic = f"ethercat/box{idx}"
+                        client.publish(topic, message)
 
                     # Add a delay to avoid flooding the console
                     time.sleep(1)
@@ -73,10 +74,7 @@ def main(ifname):
 
     # Close EtherCAT master
     master.close()
+    client.disconnect()
 
 if __name__ == "__main__":
     main("enp1s0")
-    # if len(sys.argv) > 1:
-    #     main(sys.argv[1])
-    # else:
-    #     print("Usage: python ethercat_data_print.py <network_interface>")
