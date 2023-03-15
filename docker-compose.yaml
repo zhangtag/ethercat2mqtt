@@ -1,0 +1,53 @@
+version: "3.9"
+services:
+  box1:
+    image: hello
+    environment:
+      - id=1
+    deploy:
+      placement:
+        constraints:
+          - node.labels.worker == worker1
+  box2:
+    image: hello
+    environment:
+      - id=2
+    deploy:
+      placement:
+        constraints:
+          - node.labels.worker == worker1
+  box3:
+    image: hello
+    environment:
+      - id=3
+    deploy:
+      placement:
+        constraints:
+          - node.labels.worker == worker1
+  box4:
+    image: hello
+    environment:
+      - id=4
+    deploy:
+      placement:
+        constraints:
+          - node.labels.worker == worker2
+  box5:
+    image: hello
+    environment:
+      - id=5
+    deploy:
+      placement:
+        constraints:
+          - node.labels.worker == worker2
+  .
+  .
+  .
+  box20:
+    image: hello
+    environment:
+      - id=6
+    deploy:
+      placement:
+        constraints:
+          - node.labels.worker == worker3
