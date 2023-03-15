@@ -1,5 +1,5 @@
 import pysoem
-import sys
+# import sys
 import paho.mqtt.client as mqtt
 import time
 # MQTT 服务器信息
@@ -65,7 +65,7 @@ def main(ifname):
         # Set all slaves to pre-operational state
         master.state = pysoem.PREOP_STATE
         master.write_state()
-        
+
     else:
         print("No slaves found")
 
