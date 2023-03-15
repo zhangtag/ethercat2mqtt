@@ -27,48 +27,45 @@ def main(ifname):
         # Map slave configurations
         master.config_map()
 
-        # Check for 10 expected slaves
-        if len(master.slaves) == 10:
-            # Configure Distributed Clocks (DC) if required
-            # This is optional and depends on your EtherCAT network configuration
-            master.config_dc()
+        # Configure Distributed Clocks (DC) if required
+        # This is optional and depends on your EtherCAT network configuration
+        master.config_dc()
 
-            # Set operational state for all slaves
-            master.state_check(pysoem.SAFEOP_STATE, 50000)
-            master.state = pysoem.OP_STATE
-            master.write_state()
+        # Set operational state for all slaves
+        master.state_check(pysoem.SAFEOP_STATE, 50000)
+        master.state = pysoem.OP_STATE
+        master.write_state()
 
-            # Wait for all slaves to reach operational state
-            master.state_check(pysoem.OP_STATE, 50000)
+        # Wait for all slaves to reach operational state
+        master.state_check(pysoem.OP_STATE, 50000)
 
-            try:
-                while True:
-                    # Read process data
-                    master.send_processdata()
-                    master.receive_processdata(5000)
+        try:
+            while True:
+                # Read process data
+                master.send_processdata()
+                master.receive_processdata(5000)
 
-                    for idx, slave in enumerate(master.slaves, start=1):
-                        # print(f"Slave {idx} (ID: {slave.configadr}):")
-                        # for i, data in enumerate(slave.inputs):
-                        #     print(f"  Input {i}: {data}")
-                        # for i, data in enumerate(slave.outputs):
-                        #     print(f"  Output {i}: {data}")
-                        # print()
-                        message = slave.sdo_read(0x6050,1,8)
-                        topic = f"ethercat/box{idx}"
-                        client.publish(topic, message)
+                for idx, slave in enumerate(master.slaves, start=1):
+                    # print(f"Slave {idx} (ID: {slave.configadr}):")
+                    # for i, data in enumerate(slave.inputs):
+                    #     print(f"  Input {i}: {data}")
+                    # for i, data in enumerate(slave.outputs):
+                    #     print(f"  Output {i}: {data}")
+                    # print()
+                    message = slave.sdo_read(0x6050,1,8)
+                    topic = f"ethercat/box{idx}"
+                    client.publish(topic, message)
 
-                    # Add a delay to avoid flooding the console
-                    time.sleep(1)
+                # Add a delay to avoid flooding the console
+                time.sleep(1)
 
-            except KeyboardInterrupt:
-                print("Stopping...")
+        except KeyboardInterrupt:
+            print("Stopping...")
 
-            # Set all slaves to pre-operational state
-            master.state = pysoem.PREOP_STATE
-            master.write_state()
-        else:
-            print(f"Expected 10 slaves, but found {len(master.slaves)}")
+        # Set all slaves to pre-operational state
+        master.state = pysoem.PREOP_STATE
+        master.write_state()
+        
     else:
         print("No slaves found")
 
