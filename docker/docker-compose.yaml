@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  box1:
+    image: box
+    environment:
+      - BOXID=1
+      - NODEIP=192.168.1.200
+
+  # box2:
+  #   build: .
+  #   image: box
+  #   environment:
+  #     - ID=2
+  #     - IP=192.168.0.2
+  #   command: python app.py

@@ -40,9 +40,8 @@ services:
       placement:
         constraints:
           - node.labels.worker == worker2
-  .
-  .
-  .
+
+
   box20:
     image: hello
     environment:
