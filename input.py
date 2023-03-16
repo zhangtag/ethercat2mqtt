@@ -2,10 +2,12 @@ import math
 import random
 import paho.mqtt.client as mqtt
 import time
+import json
 
 # MQTT连接参数
-MQTT_BROKER = "192.168.1.233"
+# MQTT_BROKER = "192.168.1.233"
 MQTT_PORT = 1883
+MQTT_BROKER = "192.168.1.110"
 
 msg = {
     "id": 0,
@@ -38,9 +40,9 @@ while True:
         msg["data"]["x"] = math.sin(2 * math.pi * x / 68) + random.uniform(-0.001, 0.001)
         
         # 将y发布到MQTT服务器
-        MQTT_TOPIC = "input/box{i}"
+        MQTT_TOPIC = "input/box%d" % i
         msg["id"] = i
-        publish(client, MQTT_TOPIC, str(msg))
+        publish(client, MQTT_TOPIC, json.dumps(msg))
         
         # 休眠20毫秒
         time.sleep(0.02)
