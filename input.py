@@ -2,17 +2,12 @@ import math
 import random
 import paho.mqtt.client as mqtt
 import time
-import json
 
 # MQTT连接参数
 MQTT_BROKER = "192.168.1.233"
 MQTT_PORT = 1883
-# boxid=0
-# nodeip=0
-# xa=0
-# ya=0
-# za=0
-msg = json.dumps({
+
+msg = {
     "id": 0,
     "ip": 0,
     "timestamp": int(time.time() * 1000),
@@ -21,7 +16,7 @@ msg = json.dumps({
         "y": 0,
         "z": 0
     }
-})
+}
 
 
 # 发布函数
