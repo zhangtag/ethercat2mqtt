@@ -2,7 +2,7 @@ version: "3"
 
 services:
   box1:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=1
       - NODEIP=192.168.1.205
@@ -12,7 +12,7 @@ services:
           - node.labels.worker == worker1
 
 box2:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=2
       - NODEIP=192.168.1.205
@@ -22,7 +22,7 @@ box2:
     #       - node.labels.worker == worker1
 
 box3:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=3
       - NODEIP=192.168.1.205
@@ -32,7 +32,7 @@ box3:
     #       - node.labels.worker == worker1
 
 box4:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=4
       - NODEIP=192.168.1.206
@@ -42,7 +42,7 @@ box4:
     #       - node.labels.worker == worker2
 
 box5:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=5
       - NODEIP=192.168.1.206
@@ -52,7 +52,7 @@ box5:
     #       - node.labels.worker == worker2
 
 box6:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=6
       - NODEIP=192.168.1.206
@@ -62,7 +62,7 @@ box6:
     #       - node.labels.worker == worker2
 
 box7:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=7
       - NODEIP=192.168.1.206
@@ -72,7 +72,7 @@ box7:
     #       - node.labels.worker == worker2
 
 box8:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=8
       - NODEIP=192.168.1.206
@@ -82,7 +82,7 @@ box8:
     #       - node.labels.worker == worker2
 
 box9:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=9
       - NODEIP=192.168.1.206
@@ -92,7 +92,7 @@ box9:
     #       - node.labels.worker == worker2
 
 box10:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=10
       - NODEIP=192.168.1.206
@@ -102,7 +102,7 @@ box10:
     #       - node.labels.worker == worker2
 
 box11:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=11
       - NODEIP=192.168.1.206
@@ -112,7 +112,7 @@ box11:
     #       - node.labels.worker == worker2
 
 box12:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=12
       - NODEIP=192.168.1.206
@@ -122,7 +122,7 @@ box12:
     #       - node.labels.worker == worker2
 
 box13:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=13
       - NODEIP=192.168.1.206
@@ -132,7 +132,7 @@ box13:
     #       - node.labels.worker == worker2
 
 box14:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=14
       - NODEIP=192.168.1.206
@@ -142,7 +142,7 @@ box14:
     #       - node.labels.worker == worker2
 
 box15:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=15
       - NODEIP=192.168.1.207
@@ -152,7 +152,7 @@ box15:
     #       - node.labels.worker == worker3
 
 box16:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=16
       - NODEIP=192.168.1.207
@@ -162,7 +162,7 @@ box16:
     #       - node.labels.worker == worker3
 
 box17:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=17
       - NODEIP=192.168.1.207
@@ -172,7 +172,7 @@ box17:
     #       - node.labels.worker == worker3
 
 box18:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=18
       - NODEIP=192.168.1.207
@@ -182,7 +182,7 @@ box18:
     #       - node.labels.worker == worker3
 
 box19:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=19
       - NODEIP=192.168.1.207
@@ -192,7 +192,7 @@ box19:
     #       - node.labels.worker == worker3
 
 box20:
-    image: docker.io/16hz/box:v1.0
+    image: docker.io/16hz/box:v1.1
     environment: 
       - BOXID=20
       - NODEIP=192.168.1.207
