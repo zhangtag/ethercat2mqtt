@@ -3,7 +3,7 @@ import json
 import paho.mqtt.client as mqtt
 # import time
 
-id = os.environ.get('BOXID')
+# id = os.environ.get('BOXID')
 # MQTT连接参数
 MQTT_BROKER = os.environ.get('NODEIP')  
 MQTT_PORT = 1883
@@ -25,10 +25,9 @@ msg = {
 def on_message(client, userdata, message):
     payload = message.payload.decode('utf-8')
     data = json.loads(payload)
+    msg["id"] = os.environ.get('BOXID')
     msg["data"]["x"] = data["data"]["x"]
-    # publish(client, MQTT_TOPIC,  json.dumps(msg))
     client.publish(MQTT_TOPIC, json.dumps(msg))
-    # print("Received data:", data["data"]["x"])
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
