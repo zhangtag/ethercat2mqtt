@@ -7,7 +7,7 @@ import json
 # MQTT连接参数
 # MQTT_BROKER = "192.168.1.233"
 MQTT_PORT = 1883
-MQTT_BROKER = "192.168.1.110"
+MQTT_BROKER = "192.168.1.131"
 
 msg = {
     "id": 0,
