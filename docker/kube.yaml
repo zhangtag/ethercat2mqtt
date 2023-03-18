@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: box1
+spec:
+  nodeName: worker1
+  containers:
+  - name: container-1
+    image: docker.io/16hz/box:v1.2
+    env:
+    - name: BOXID
+      value: "1"
+    - name: NODEIP
+      value: "192.168.1.233"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: box2
+spec:
+  nodeName: worker1
+  containers:
+  - name: container-2
+    image: docker.io/16hz/box:v1.2
+    env:
+    - name: BOXID
+      value: "2"
+    - name: NODEIP
+      value: "192.168.1.233"
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: box3
+spec:
+  nodeName: worker2
+  containers:
+  - name: container-3
+    image: docker.io/16hz/box:v1.2
+    env:
+    - name: BOXID
+      value: "3"
+    - name: NODEIP
+      value: "192.168.1.233"
