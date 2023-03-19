@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-pod
+  name: box1
   namespace: edge-box
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-pod
+      app: box1
   template:
     metadata:
       labels:
-        app: my-pod
+        app: box1
     spec:
       affinity:
         nodeAffinity:
@@ -30,22 +30,21 @@ spec:
           value: "1"
         - name: NODEIP
           value: "192.168.1.233"
-
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-pod
+  name: box2
   namespace: edge-box
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-pod
+      app: box2
   template:
     metadata:
       labels:
-        app: my-pod
+        app: box2
     spec:
       affinity:
         nodeAffinity:
@@ -55,7 +54,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - worker1
+                - worker2
       containers:
       - name: box2
         image: docker.io/16hz/box:latest
@@ -65,50 +64,70 @@ spec:
         - name: NODEIP
           value: "192.168.1.233"
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: pod-2
+  name: box3
   namespace: edge-box
 spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - worker1
-  containers:
-  - name: box2
-    image: docker.io/16hz/box:v1.2
-    env:
-    - name: BOX
-      value: "2"
-    - name: NODE
-      value: "192.168.1.233"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box3
+  template:
+    metadata:
+      labels:
+        app: box3
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box3
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "3"
+        - name: NODEIP
+          value: "192.168.1.233"
+
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: pod-3
+  name: box4
   namespace: edge-box
 spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - worker2
-  containers:
-  - name: box3
-    image: docker.io/16hz/box:v1.2
-    env:
-    - name: BOX
-      value: "3"
-    - name: NODE
-      value: "192.168.1.233"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box4
+  template:
+    metadata:
+      labels:
+        app: box4
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box4
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "4"
+        - name: NODEIP
+          value: "192.168.1.233"
+
