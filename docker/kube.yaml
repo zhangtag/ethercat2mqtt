@@ -54,7 +54,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - worker2
+                - worker1
       containers:
       - name: box2
         image: docker.io/16hz/box:latest
@@ -87,7 +87,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - worker3
+                - worker1
       containers:
       - name: box3
         image: docker.io/16hz/box:latest
@@ -131,3 +131,534 @@ spec:
         - name: NODEIP
           value: "192.168.1.233"
 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box5
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box5
+  template:
+    metadata:
+      labels:
+        app: box5
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box5
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "5"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box6
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box6
+  template:
+    metadata:
+      labels:
+        app: box6
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box6
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "6"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box7
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box7
+  template:
+    metadata:
+      labels:
+        app: box7
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box7
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "7"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box8
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box8
+  template:
+    metadata:
+      labels:
+        app: box8
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box8
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "8"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box9
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box9
+  template:
+    metadata:
+      labels:
+        app: box9
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box9
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "9"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box10
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box10
+  template:
+    metadata:
+      labels:
+        app: box10
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box10
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "10"
+        - name: NODEIP
+          value: "192.168.1.233"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box11
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box11
+  template:
+    metadata:
+      labels:
+        app: box11
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box11
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "11"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box12
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box12
+  template:
+    metadata:
+      labels:
+        app: box12
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box12
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "12"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box13
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box13
+  template:
+    metadata:
+      labels:
+        app: box13
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker2
+      containers:
+      - name: box13
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "13"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box14
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box14
+  template:
+    metadata:
+      labels:
+        app: box14
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box14
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "14"
+        - name: NODEIP
+          value: "192.168.1.233"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box15
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box15
+  template:
+    metadata:
+      labels:
+        app: box15
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box15
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "15"
+        - name: NODEIP
+          value: "192.168.1.233"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box16
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box16
+  template:
+    metadata:
+      labels:
+        app: box16
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box16
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "16"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box17
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box17
+  template:
+    metadata:
+      labels:
+        app: box17
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box17
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "17"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box18
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box18
+  template:
+    metadata:
+      labels:
+        app: box18
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box18
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "18"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box19
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box19
+  template:
+    metadata:
+      labels:
+        app: box19
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box19
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "19"
+        - name: NODEIP
+          value: "192.168.1.233"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: box20
+  namespace: edge-box
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: box20
+  template:
+    metadata:
+      labels:
+        app: box20
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker3
+      containers:
+      - name: box20
+        image: docker.io/16hz/box:latest
+        env:
+        - name: BOXID
+          value: "20"
+        - name: NODEIP
+          value: "192.168.1.233"

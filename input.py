@@ -15,7 +15,6 @@ MQTT_BROKER = "192.168.1.131"
 
 msg = {
     "boxid": 0,
-    # "now": hostname,
     "original":ip_address,
     "timestamp": int(time.time() * 1000),
     "data": {
