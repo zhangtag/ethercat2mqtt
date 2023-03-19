@@ -1,46 +1,72 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: box1
+  name: pod-1
+  namespace: edge-box
 spec:
-  nodeName: worker1
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - worker1
   containers:
-  - name: container-1
+  - name: box1
     image: docker.io/16hz/box:v1.2
     env:
-    - name: BOXID
+    - name: BOX
       value: "1"
-    - name: NODEIP
+    - name: NODE
       value: "192.168.1.233"
 
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: box2
+  name: pod-2
+  namespace: edge-box
 spec:
-  nodeName: worker1
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - worker1
   containers:
-  - name: container-2
+  - name: box2
     image: docker.io/16hz/box:v1.2
     env:
-    - name: BOXID
+    - name: BOX
       value: "2"
-    - name: NODEIP
+    - name: NODE
       value: "192.168.1.233"
-
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: box3
+  name: pod-3
+  namespace: edge-box
 spec:
-  nodeName: worker2
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - worker2
   containers:
-  - name: container-3
+  - name: box3
     image: docker.io/16hz/box:v1.2
     env:
-    - name: BOXID
+    - name: BOX
       value: "3"
-    - name: NODEIP
+    - name: NODE
       value: "192.168.1.233"
