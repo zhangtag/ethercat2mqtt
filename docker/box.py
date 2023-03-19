@@ -4,12 +4,10 @@ import paho.mqtt.client as mqtt
 # import socket
 import time
 
-# host_name = socket.gethostname()
-# host_ip = socket.gethostbyname(host_name)
-boxid = os.environ.get('BOXID', 0)
+boxid = int(os.environ.get('BOXID', 0))
 MQTT_BROKER = os.environ.get('NODEIP', '127.0.0.1')
 MQTT_PORT = 1883
-MQTT_TOPIC = "out/box%d" % int(boxid) 
+MQTT_TOPIC = "out/box%d" % boxid
 
 # msg = {
 #     "boxid": 0,
@@ -25,9 +23,10 @@ MQTT_TOPIC = "out/box%d" % int(boxid)
 def on_message(client, userdata, message):
     payload = message.payload.decode('utf-8')
     data = json.loads(payload)
-    if data["boxid"] == boxid:
-        data["timestamp"] = int(time.time() * 1000)
-        client.publish(MQTT_TOPIC, json.dumps(data))
+    if "boxid" in data:
+        if data["boxid"] == boxid:
+            data["timestamp"] = int(time.time() * 1000)
+            client.publish(MQTT_TOPIC, json.dumps(data))
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
