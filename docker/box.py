@@ -20,6 +20,7 @@ MQTT_TOPIC = "out/box%d" % boxid
 #     }
 # }
 
+#data process demo
 def on_message(client, userdata, message):
     payload = message.payload.decode('utf-8')
     data = json.loads(payload)
