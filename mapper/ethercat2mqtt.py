@@ -109,7 +109,6 @@ def main(ifname):
                 #     # for i, data in enumerate(slave.outputs):
                 #     #     print(f"  Output {i}: {data}")
                 #     # print()
-                # Iterate over all slaves and publish their data to MQTT
                 for idx, slave in enumerate(master.slaves, start=1):
                     message = slave.receiveddatagram
                     topic = f"ethercat/box{idx}"
